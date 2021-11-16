@@ -1,0 +1,918 @@
+<html lang="en" style="" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths -webkit-">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+    <title>OCW XML generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <style media="" data-href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        button,
+        hr,
+        input {
+            overflow: visible
+        }
+        
+        audio,
+        canvas,
+        progress,
+        video {
+            display: inline-block
+        }
+        
+        progress,
+        sub,
+        sup {
+            vertical-align: baseline
+        }
+        
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%
+        }
+        
+        body {
+            margin: 0
+        }
+        
+        menu,
+        article,
+        aside,
+        details,
+        footer,
+        header,
+        nav,
+        section {
+            display: block
+        }
+        
+        h1 {
+            font-size: 2em;
+            margin: .67em 0
+        }
+        
+        figcaption,
+        figure,
+        main {
+            display: block
+        }
+        
+        figure {
+            margin: 1em 40px
+        }
+        
+        hr {
+            box-sizing: content-box;
+            height: 0
+        }
+        
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: monospace, monospace;
+            font-size: 1em
+        }
+        
+        a {
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects
+        }
+        
+        a:active,
+        a:hover {
+            outline-width: 0
+        }
+        
+        abbr[title] {
+            border-bottom: none;
+            text-decoration: underline;
+            text-decoration: underline dotted
+        }
+        
+        b,
+        strong {
+            font-weight: bolder
+        }
+        
+        dfn {
+            font-style: italic
+        }
+        
+        mark {
+            background-color: #ff0;
+            color: #000
+        }
+        
+        small {
+            font-size: 80%
+        }
+        
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative
+        }
+        
+        sub {
+            bottom: -.25em
+        }
+        
+        sup {
+            top: -.5em
+        }
+        
+        audio:not([controls]) {
+            display: none;
+            height: 0
+        }
+        
+        img {
+            border-style: none
+        }
+        
+        svg:not(:root) {
+            overflow: hidden
+        }
+        
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: sans-serif;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0
+        }
+        
+        button,
+        input {}
+        
+        button,
+        select {
+            text-transform: none
+        }
+        
+        [type=submit],
+        [type=reset],
+        button,
+        html [type=button] {
+            -webkit-appearance: button
+        }
+        
+        [type=button]::-moz-focus-inner,
+        [type=reset]::-moz-focus-inner,
+        [type=submit]::-moz-focus-inner,
+        button::-moz-focus-inner {
+            border-style: none;
+            padding: 0
+        }
+        
+        [type=button]:-moz-focusring,
+        [type=reset]:-moz-focusring,
+        [type=submit]:-moz-focusring,
+        button:-moz-focusring {
+            outline: ButtonText dotted 1px
+        }
+        
+        fieldset {
+            border: 1px solid silver;
+            margin: 0 2px;
+            padding: .35em .625em .75em
+        }
+        
+        legend {
+            box-sizing: border-box;
+            color: inherit;
+            display: table;
+            max-width: 100%;
+            padding: 0;
+            white-space: normal
+        }
+        
+        progress {}
+        
+        textarea {
+            overflow: auto
+        }
+        
+        [type=checkbox],
+        [type=radio] {
+            box-sizing: border-box;
+            padding: 0
+        }
+        
+        [type=number]::-webkit-inner-spin-button,
+        [type=number]::-webkit-outer-spin-button {
+            height: auto
+        }
+        
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+        
+        [type=search]::-webkit-search-cancel-button,
+        [type=search]::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+        
+         ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+        
+        summary {
+            display: list-item
+        }
+        
+        [hidden],
+        template {
+            display: none
+        }
+        /*# sourceMappingURL=normalize.min.css.map */
+    </style>
+
+    <style>
+        body {
+            background: #232425;
+            color: #ffffff;
+            padding: 80px 0px 0px 0px;
+        }
+        
+        body ::selection {
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        body ::-moz-selection {
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .wrapper {
+            position: relative;
+            width: 1280px;
+            height: 650px;
+            margin: auto;
+        }
+        /* Header */
+        
+        .header {
+            border: 1px solid #333;
+            box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            height: 80px;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            padding: 10px 0px;
+            background: #232425;
+            z-index: 10;
+        }
+        
+        .header .header-body {
+            position: relative;
+            width: 1020px;
+            margin: auto;
+        }
+        
+        .header .header-helper-output {
+            position: absolute;
+            top: 10px;
+            right: 80px;
+            color: #ccc;
+            width: 55%;
+            height: 70px;
+            font-size: 12px;
+            line-height: 18px;
+        }
+        
+        .header a {
+            color: #fff;
+        }
+        
+        .header h1 {
+            font-family: helvetica;
+            font-weight: 100;
+            font-size: 16px;
+            color: #ccc;
+            margin-top: 0;
+        }
+        /* Form styles */
+        
+        .form {
+            width: 400px;
+            float: left;
+        }
+        
+        .form fieldset {
+            position: relative;
+            margin: 30px 0px;
+            border: 1px solid #444;
+        }
+        
+        .form fieldset legend {
+            color: #ccc;
+        }
+        
+        .form label {
+            width: 140px;
+            display: inline-block;
+            color: #ccc;
+            font-size: 14px;
+        }
+        
+        .form .hide {
+            height: 0px;
+            overflow: hidden;
+            transition: height 1s ease-out;
+        }
+        
+        .form .item:nth-child(1) .remove-item {
+            display: none;
+        }
+        
+        .form .field {
+            margin: 10px 0px;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        textarea,
+        button {
+            border: 1px solid #444;
+            background: #222;
+            padding: 6px 8px;
+            color: #ccc;
+            width: 200px;
+            transition: background-color 0.2s ease-out;
+            font-size: 14px;
+        }
+        
+        input[type="text"]:focus,
+        input[type="text"]:hover,
+        input[type="date"]:focus,
+        input[type="date"]:hover,
+        textarea:focus,
+        textarea:hover,
+        button:focus,
+        button:hover {
+            background: #000;
+        }
+        
+        button {
+            display: inline-block;
+            width: 140px;
+            font-size: 12px;
+            border-radius: 4px;
+            height: 30px;
+            padding-top: 4px;
+        }
+        
+        button:active {
+            padding-top: 5px;
+        }
+        /* XML output */
+        
+        .output-wrapper {
+            min-height: 400px;
+            float: left;
+            margin-top: 12px;
+        }
+        
+        .output-wrapper #output {
+            position: fixed;
+            padding: 10px 0px 0px 20px;
+            font-size: 14px;
+            width: 850px;
+            height: 400px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        /* XML Node styling */
+        
+        .node {
+            font-weight: normal;
+            color: #444;
+        }
+        
+        .attribute {
+            color: #fff !important;
+        }
+        
+        .output-wrapper:hover .node {
+            color: #8e6e35;
+        }
+    </style>
+
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+</head>
+
+<body translate="no">
+    <script id="channel-info-template" type="text/x-handlebars-template">
+        <?xml version="1.0" encoding="UTF-8"?>
+        <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+            <channel>
+                <title>{{channelTitle}}</title>
+                <link>{{channelLink}}https://ocw.kyoto-u.ac.jp/</link>
+                <language>{{channelLang}}jp</language>
+                <copyright>{{channelCopyright}}2021 Kyoto University OCW</copyright>
+                <itunes:subtitle>{{channelSubtitle}}</itunes:subtitle>
+                <itunes:author>{{channelAuthor}}Kyoto University OCW</itunes:author>
+                <description>{{channelDescription}}</description>
+
+                <itunes:owner>
+                    <itunes:name>{{channelOwnerName}}Kyoto University OCW</itunes:name>
+                    <itunes:email>{{channelOwnerEmail}}ocw@highedu.kyoto-u.ac.jp</itunes:email>
+                </itunes:owner>
+                <itunes:image href="http://133.3.251.78/itunesu/thumbnail/{{channelImageUrl}}" />
+                <itunes:category text="{{channelCategory}}" /> {{#each items}}
+                <itunes:explicit>false</itunes:explicit>
+                <item>
+                    <title>{{itemTitle}}</title>
+                    <itunes:episodeType>full</itunes:episodeType>
+                    <itunes:author>{{itemAuthor}}</itunes:author>
+                    <itunes:subtitle>{{itemSubtitle}}</itunes:subtitle>
+                    <itunes:description>{{itemDescription}}</itunes:description>
+
+                    <itunes:image href="{{itemImageUrl}}" />
+                    <enclosure url="http://133.3.251.78/itunesu/mp4/{{itemEnclosureUrl}}" length="{{itemEnclosureLength}}" type="{{itemEnclosureType}}" />
+                    <guid>{{itemGuid}}</guid>
+                    <pubDate>{{itemPubDate}}</pubDate>
+                    <itunes:duration>{{itemDuration}}</itunes:duration>
+                    <itunes:explicit>false</itunes:explicit>
+                </item>
+                {{/each}}
+            </channel>
+        </rss>
+    </script>
+
+    <div class="wrapper">
+        <header class="header">
+            <div class="header-body">
+                <h1>OCW - itunes POdcast XML Generator</h1>
+                <div class="field">
+
+                    <button id="add-item">Add New Episode</button>
+                    <button id="select-code">Select All XML Code</button>
+                </div>
+                <div class="header-helper-output">
+
+                </div>
+            </div>
+        </header>
+
+        <div class="form">
+            <form action="#" id="podcast" method="post">
+
+                <fieldset class="channel-info">
+                    <legend>Channel info</legend>
+                    <div class="field">
+                        <label for="channel-title">Title</label>
+                        <input id="channel-title" name="channelTitle" placeholder="Title" type="text" data-help-text="Add the title of the podcast.<br/> Make your title specific. A podcast entitled 'Our Community Bulletin' is too vague and will attract no subscribers, no matter how compelling the content.">
+                    </div>
+                    <div class="field">
+                        <label for="channel-link">Link</label>
+                        <input id="channel-link" name="channelLink" placeholder="Link" type="text" value="https://ocw.kyoto-u.ac.jp/" disabled data-help-text="Add the url of the podcast. Will be used for website link and arrow in Name column within Itunes">
+                    </div>
+                    <div class="field">
+                        <label for="channel-lang">Language</label>
+                        <input id="channel-lang" name="channelLang" placeholder="jp" type="text" value="jp" disabled data-help-text="Because iTunes operates sites worldwide, it is critical to specify the language of a podcast. Accepted values are those in the <a href='http://www.w3.org/WAI/ER/IG/ert/iso639.htm' target='_blank'>ISO 639-1</a> Alpha-2 list (two-letter language codes, some with possible modifiers, such as 'en-us').">
+                    </div>
+                    <div class="field">
+                        <label for="channel-copyright">Copyright</label>
+                        <input id="channel-copyright" name="channelCopyright" placeholder="Copyright" type="text" value="2021 Kyoto University OCW" disabled data-help-text="The copyright of the podcast content, will not be visible within Itunes">
+                    </div>
+                    <div class="field">
+                        <label for="channel-subtitle">Subtitle</label>
+                        <input id="channel-subtitle" name="channelSubtitle" placeholder="Subtitle" type="text" data-help-text="The contents of this tag are shown in the Description column in iTunes. The subtitle displays best if it is only a few words long.">
+                    </div>
+                    <div class="field">
+                        <label for="channel-author">Author</label>
+                        <input id="channel-author" name="channelAuthor" placeholder="Author" type="text" value="Kyoto University OCW" disabled data-help-text="The content of this tag is shown in the Artist column in iTunes. If the tag is not present, iTunes uses the contents of the 'author' tag. If 'itunes:author' is not present at the feed level, iTunes will use the contents of 'managingEditor'.">
+                    </div>
+                    <div class="field">
+                        <label for="channel-description">Description</label>
+                        <textarea id="channel-description" name="channelDescription" placeholder="Description" data-help-text="The contents of this tag are shown in a separate window that appears when the 'circled i' in the Description column is clicked. It also appears on the iTunes page for your podcast. This field can be up to 4000 characters. If 'itunes:summary' is not included, the contents of the 'description' tag are used."></textarea>
+                    </div>
+                    <!-- <div class="field">
+                        <label for="channel-summary">Summary</label>
+                        <textarea id="channel-summary" name="channelSummary" placeholder="Summary" data-help-text="The contents of this tag are shown in a separate window that appears when the 'circled i' in the Description column is clicked. It also appears on the iTunes page for your podcast. This field can be up to 4000 characters. If 'itunes:summary' is not included, the contents of the 'description' tag are used."></textarea>
+                    </div> -->
+                    <!--
+        <div class="field">
+          <label for="channel-description">Description</label>
+          <textarea id="channel-description" name="channelDescription" placeholder="Description"></textarea>
+        </div>
+        -->
+                    <!-- Description not needed if summary is used-->
+                    <div class="field">
+                        <label for="owner-name">Owner name</label>
+                        <input id="owner-name" name="channelOwnerName" placeholder="Owner name" type="text" value="Kyoto University OCW" disabled data-help-text="This tag contains information that will be used to contact the owner of the podcast for communication specifically about the podcast. It will not be publicly displayed. <br/>Put the email address of the owner in a nested <itunes:email> element.">
+                    </div>
+                    <div class="field">
+                        <label for="owner-email">Owner email</label>
+                        <input id="owner-email" name="channelOwnerEmail" placeholder="Owner email" type="text" value="ocw@highedu.kyoto-u.ac.jp" disabled data-help-text="Put the name of the owner in a nested 'itunes:name' element.">
+                    </div>
+                    <div class="field">
+                        <label for="channel-image-url">Image Name</label>
+                        <input id="channel-image-url" name="channelImageUrl" placeholder="Image Name" type="text" data-help-text="This tag specifies the artwork for your podcast.iTunes prefers square .jpg images that are at least 1400x1400 pixels, which is different from what is specified for the standard RSS image tag. In order for a podcast to be eligible for an iTunes Store feature, the accompanying image must be at least 1400x1400 pixels.">
+                    </div>
+                    <div class="field">
+                        <label for="channel-category">Category</label>
+                        <!--<input id="channel-category" name="channelCategory" placeholder="Category" type="text" data-help-text="Category column and in iTunes Store Browse."/>-->
+                        <select id="categories-dropdown" class="categories" name="channelCategory" data-help-text="Select category for your podcast. You can manually add more categories after copying the code if needed. Read more about categories here: <a href='https://www.apple.com/itunes/podcasts/specs.html'>https://www.apple.com/itunes/podcasts/specs.html</a>">
+              <option value="Arts">Arts</option>
+              <option value="Design">Design</option>
+              <option value="Fashion">Fashion &amp; Beauty</option>
+              <option value="Food">Food</option>
+              <option value="Performing Arts">Performing Arts</option>
+              <option value="Visual Arts">Visual Arts</option>
+              <option value="Business">Business</option>
+              <option value="Business News">Business News</option>
+              <option value="Careers">Careers</option>
+              <option value="Investing">Investing</option>
+              <option value="Management &amp; Marketing">Management &amp; Marketing</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Education">Education</option>
+              <option value="Education Technology">Education Technology</option>
+              <option value="Higher Education">Higher Education</option>
+              <option value="K-12">K-12</option>
+              <option value="Language Courses">Language Courses</option>
+              <option value="Training">Training</option>
+              <option value="Games &amp; Hobbies">Games &amp; Hobbies</option>
+              <option value="Automotive">Automotive</option>
+              <option value="Aviation">Aviation</option>
+              <option value="Hobbies">Hobbies</option>
+              <option value="Other Games">Other Games</option>
+              <option value="Video Games">Video Games</option>
+              <option value="Government &amp; Organizations">Government &amp; Organizations</option>
+              <option value="Local">Local</option>
+              <option value="National">National</option>
+              <option value="Non-Profit">Non-Profit</option>
+              <option value="Regional">Regional</option>
+              <option value="Health">Health</option>
+              <option value="Alternative Health">Alternative Health</option>
+              <option value="Fitness &amp; Nutrition">Fitness &amp; Nutrition</option>
+              <option value="Self-Help">Self-Help</option>
+              <option value="Sexuality">Sexuality</option>
+              <option value="Kids &amp; Family">Kids &amp; Family</option>
+              <option value="Music">Music</option>
+              <option value="News &amp; Pooptiontics">News &amp; Pooptiontics</option>
+              <option value="Reoptiongion &amp; Spirituality">Reoptiongion &amp; Spirituality</option>
+              <option value="Buddhism">Buddhism</option>
+              <option value="Christianity">Christianity</option>
+              <option value="Hinduism">Hinduism</option>
+              <option value="Islam">Islam</option>
+              <option value="Judaism">Judaism</option>
+              <option value="Other">Other</option>
+              <option value="Spiritualty">Spiritualty</option>
+              <option value="Science &amp; Medicine">Science &amp; Medicine</option>
+              <option value="Medicine">Medicine</option>
+              <option value="Natural Sciences">Natural Sciences</option>
+              <option value="Social Sciences">Social Sciences</option>
+              <option value="History">History</option>
+              <option value="Personal Journals">Personal Journals</option>
+              <option value="Philosophy">Philosophy</option>
+              <option value="Places &amp; Travel">Places &amp; Travel</option>
+              <option value="Sports &amp; Recreation">Sports &amp; Recreation</option>
+              <option value="Amateur">Amateur</option>
+              <option value="College &amp; High School">College &amp; High School</option>
+              <option value="Outdoor">Outdoor</option>
+              <option value="Professional">Professional</option>
+              <option value="Technology">Technology</option>
+              <option value="Gadgets">Gadgets</option>
+              <option value="Tech">Tech News</option>
+              <option value="Podcasting">Podcasting</option>
+              <option value="Software How-To">Software How-To</option>
+              <option value="TV &amp; Film">TV &amp; Film</option>
+            </select>
+                    </div>
+                </fieldset>
+
+
+
+                <div class="item-wrapper">
+                    <fieldset class="item">
+                        <legend>Episode info</legend>
+                        <button class="remove-item">Remove Item</button>
+                        <div class="field">
+                            <label for="item-title">Item Title</label>
+                            <input class="item-title" id="item-title" name="itemTitle" placeholder="Item Title" type="text" data-help-text="Add the title of the episode.<br/> Make your title specific. A podcast entitled 'Our Community Bulletin' is too vague and will attract no subscribers, no matter how compelling the content.">
+                        </div>
+                        <div class="field">
+                            <label for="item-author">Item Author</label>
+                            <input class="item-author" id="item-author" name="itemAuthor" placeholder="Item Author" type="text" data-help-text="The content of this tag is shown in the Artist column in iTunes. If the tag is not present, iTunes uses the contents of the 'author' tag. If 'itunes:author' is not present at the feed level, iTunes will use the contents of 'managingEditor'.">
+                        </div>
+                        <div class="field">
+                            <label for="item-subtitle">Item Subtitle</label>
+                            <input class="item-subtitle" id="item-subtitle" name="itemSubtitle" placeholder="Item Subtitle" type="text" data-help-text="The contents of this tag are shown in the Description column in iTunes. The subtitle displays best if it is only a few words long.">
+                        </div>
+                        <div class="field">
+                            <label for="item-description">Item Description</label>
+                            <textarea class="item-description" id="item-description" name="itemDescription" placeholder="Item Description" data-help-text="The contents of this tag are shown in a separate window that appears when the 'circled i' in the Description column is clicked. It also appears on the iTunes page for your podcast. This field can be up to 4000 characters. If 'itunes:summary' is not included, the contents of the 'description' tag are used."></textarea>
+                        </div>
+                        <!-- <div class="field">
+                            <label for="item-summary">Item Summery</label>
+                            <textarea class="item-summary" id="item-summary" name="itemSummary" placeholder="Item Summery" data-help-text="The contents of this tag are shown in a separate window that appears when the 'circled i' in the Description column is clicked. It also appears on the iTunes page for your podcast. This field can be up to 4000 characters. If 'itunes:summary' is not included, the contents of the 'description' tag are used."></textarea>
+                        </div> -->
+                        <div class="field">
+                            <label for="item-image-url">Item Image Url</label>
+                            <input class="item-image-url" id="item-image-url" name="itemImageUrl" placeholder="Item Image Url" type="text" data-help-text="This tag specifies the artwork for your podcast. iTunes prefers square .jpg images that are at least 1400x1400 pixels, which is different from what is specified for the standard RSS image tag. In order for a podcast to be eligible for an iTunes Store feature, the accompanying image must be at least 1400x1400 pixels.">
+                        </div>
+                        <div class="field">
+                            <label for="item-enclosure-url">Item Url (Name)</label>
+                            <input class="item-enclosure-url" id="item-enclosure-url" name="itemEnclosureUrl" placeholder="Item Url(Name)" type="text" data-help-text="Add the URL to the source file of the podcast. The file extension of the URL attribute of this tag is used to determine if an item should appear in the podcast directory. Supported extensions include .m4a, .mp3, .mov, .mp4, .m4v, .pdf, and .epub.">
+                        </div>
+                        <div class="field">
+                            <label for="item-enclosure-length">Item Length</label>
+                            <input class="item-enclosure-length" id="item-enclosure-length" name="itemEnclosureLength" placeholder="Item Length" type="text" data-help-text="The length attribute is the file size in bytes. Find this information in the file’s properties (on a Mac, choose Get Info from the File menu and refer to the size row).">
+                        </div>
+                        <div class="field">
+                            <label for="item-enclosure-type">Item Type</label>
+                            <select class="item-enclosure-type" id="item-enclosure-type" name="itemEnclosureType" value="video/mp4" disabled data-help-text="The type element depends upon the type of file the enclosure refers to. Common files and their MIME type extensions are listed in the dropdown">
+                <option
+                 
+                  value="audio/mpeg"
+                >audio/mpeg</option>
+                <option  selected="selected" value="video/mp4">video/mp4</option>
+                <option value="audio/x-m4a">audio/x-m4a</option>
+                <option value="video/x-m4v">video/x-m4v</option>
+                <option value="video/quicktime">video/quicktime</option>
+                <option value="application/pdf">application/pdf</option>
+                <option value="document/x-epub">document/x-epub</option>
+              </select>
+                        </div>
+                        <div class="field">
+                            <label for="item-guid">Item Guid</label>
+                            <input class="item-guid" id="item-guid" name="itemGuid" placeholder="Item Guid" type="text" data-help-text="Every <item> should have a globally unique identifier (GUID) that never changes. When you add episodes to your feed, GUIDs are compared in case-sensitive fashion to determine which episodes are new. If you omit the GUID for an episode, the episode URL will be used instead.">
+                        </div>
+                        <div class="field">
+                            <label for="item-pub-date">Item Publication Date</label>
+                            <input class="item-pub-date" id="item-pub-date" name="itemPubDate" placeholder="Item Publication Date" type="text" data-help-text="This tag specifies the date and time when an episode was released. The format for the content should be per <a href='http://www.faqs.org/rfcs/rfc2822.html' target='_blank'>RFC 2822;</a> e.g.:
+<br/>
+Wed, 15 Jun 2021 19:00:00 GMT">
+                        </div>
+                        <div class="field">
+                            <label for="item-duration">Item Duration</label>
+                            <input class="item-duration" id="item-duration" name="itemDuration" placeholder="Item Duration" type="text" data-help-text="The content of this tag is shown in the Time column in iTunes.
+<br/><br/>
+The tag can be formatted HH:MM:SS, H:MM:SS, MM:SS, or M:SS (H = hours, M = minutes, S = seconds).">
+                        </div>
+
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+        <div class="output-wrapper">
+            <pre id="output" style="height: 712px;"></pre>
+        </div>
+    </div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+    <script id="rendered-js">
+        (function() {
+            var XMLGenerator, generator;
+
+            XMLGenerator = (function() {
+                class XMLGenerator {
+                    constructor(context) {
+                        var date;
+                        this.addEventListeners = this.addEventListeners.bind(this);
+                        this.addHelperText = this.addHelperText.bind(this);
+                        this.removeHelperText = this.removeHelperText.bind(this);
+                        this.resize = this.resize.bind(this);
+                        this.selectText = this.selectText.bind(this);
+                        this.onResize = this.onResize.bind(this);
+                        this.onSelectCodeClick = this.onSelectCodeClick.bind(this);
+                        this.onAddItemClick = this.onAddItemClick.bind(this);
+                        this.onRemoveItemClick = this.onRemoveItemClick.bind(this);
+                        this.onAddToExistingChange = this.onAddToExistingChange.bind(this);
+                        this.onKeyUp = this.onKeyUp.bind(this);
+                        this.getData = this.getData.bind(this);
+                        this.outputData = this.outputData.bind(this);
+                        this.umlauts = this.umlauts.bind(this);
+                        this.htmlEncode = this.htmlEncode.bind(this);
+                        this.context = context;
+                        this.data = {};
+                        this.$document = $(document);
+                        this.$channelTemplate = $("#channel-info-template");
+                        this.$channelInfo = this.context.find(".channel-info");
+                        this.$fields = this.context.find("input, textarea, select");
+                        this.$select = this.context.find("select");
+                        this.$output = this.context.find("#output");
+                        this.$headerHelperOutput = this.context.find(".header-helper-output");
+                        this.$addToExisting = this.context.find("#add-to-existing");
+                        this.$itemsWrapper = this.context.find(".item-wrapper");
+                        this.$items = this.context.find(".item");
+                        this.$addItem = this.context.find("#add-item");
+                        this.$selectCode = this.context.find("#select-code");
+                        this.$removeItem = this.context.find(".remove-item");
+                        this.$pubDate = this.context.find(".item-pub-date");
+                        date = new Date();
+                        this.$pubDate.val(new Date(date.getTime()));
+                        this.resize();
+                        this.addEventListeners();
+                        return;
+                    }
+
+                    addEventListeners() {
+                        this.$addItem.on("click", this.onAddItemClick);
+                        this.$selectCode.on("click", this.onSelectCodeClick);
+                        this.$document.on("click", this.$removeItem, this.onRemoveItemClick);
+                        this.$document.on("keyup", this.$fields, this.onKeyUp);
+                        this.$document.on("focus", "input, textarea, select", this.addHelperText);
+                        this.$document.on("blur", "input, textarea, select", this.removeHelperText);
+                        //@$fields.on "focus", @addHelperText
+                        this.$document.on("change", this.$select, this.onKeyUp);
+                        this.$addToExisting.on("change", this.onAddToExistingChange);
+                        $(window).on("resize", this.onResize);
+                    }
+
+                    addHelperText(event) {
+                        var $field, txt;
+                        $field = $(event.target);
+                        txt = $field.data("help-text");
+                        this.$headerHelperOutput.html(txt);
+                    }
+
+                    removeHelperText() {
+                        this.$headerHelperOutput.text("");
+                    }
+
+                    resize() {
+                        this.$output.css({
+                            height: $(window).height() - 130
+                        });
+                    }
+
+                    selectText(element) {
+                        var doc, range, selection, text;
+                        doc = this.$document.get(0);
+                        text = doc.getElementById(element);
+                        if (doc.body.createTextRange) {
+                            range = doc.body.createTextRange();
+                            range.moveToElementText(text);
+                            range.select();
+                        } else if (window.getSelection) {
+                            selection = window.getSelection();
+                            range = doc.createRange();
+                            range.selectNodeContents(text);
+                            selection.removeAllRanges();
+                            selection.addRange(range);
+                        }
+                    }
+
+                    onResize(event) {
+                        this.resize();
+                    }
+
+                    onSelectCodeClick(event) {
+                        this.selectText("output");
+                    }
+
+                    onAddItemClick(event) {
+                        var $newItem;
+                        $newItem = this.$items.eq(0).clone();
+                        this.$itemsWrapper.append($newItem);
+                    }
+
+                    onRemoveItemClick(event) {
+                        var $item, $target;
+                        $target = $(event.target);
+                        if ($target.hasClass("remove-item")) {
+                            $item = $target.closest(".item");
+                            $item.fadeOut("slow", () => {
+                                return $item.remove();
+                            });
+                        }
+                    }
+
+                    onAddToExistingChange(event) {
+                        if (this.$addToExisting.is(":checked")) {
+                            this.addToExisting = true;
+                            this.$channelInfo.addClass("hide");
+                        } else {
+                            this.addToExisting = false;
+                            this.$channelInfo.removeClass("hide");
+                        }
+                    }
+
+                    onKeyUp(event) {
+                        this.getData(event);
+                        this.outputData();
+                    }
+
+                    getData(event) {
+                        var $field, $input, $item, arr, i, inputName, item, j, k, len, name, obj, ref, ref1, val;
+                        $field = $(event.target);
+                        val = $field.val();
+                        name = $field.attr("name");
+                        this.data[name] = val;
+                        arr = [];
+                        ref = $(".item");
+                        for (j = 0, len = ref.length; j < len; j++) {
+                            item = ref[j];
+                            $item = $(item);
+                            obj = {};
+                            $input = $item.find(":input").not("button");
+                            for (i = k = 0, ref1 = $input.length; k <= ref1; i = k += 1) {
+                                $field = $($input[i]);
+                                inputName = $field.attr("name");
+                                obj[inputName] = $field.val();
+                            }
+                            arr.push(obj);
+                        }
+                        this.data["items"] = arr;
+                    }
+
+                    outputData() {
+                        var source, styledString, template, umlautsString, xmlString;
+                        source = this.$channelTemplate.html();
+                        template = Handlebars.compile(source);
+                        umlautsString = this.umlauts(template(this.data));
+                        xmlString = this.htmlEncode(umlautsString);
+                        styledString = xmlString.replace(new RegExp("&lt;", 'g'), "<span class='node'>&lt;").replace(new RegExp("&gt;", 'g'), "&gt;</span>");
+                        this.$output.html(styledString);
+                    }
+
+                    umlauts(str) {
+                        str = str.replace(new RegExp("å", 'g'), "&aring;").replace(new RegExp("ä", 'g'), "&auml;").replace(new RegExp("ö", 'g'), "&ouml;").replace(new RegExp("Å", 'g'), "&Aring").replace(new RegExp("Ä", 'g'), "&Auml;").replace(new RegExp("Ö", 'g'), "&Ouml;");
+                        return str;
+                    }
+
+                    htmlEncode(htmlString) {
+                        return $('<div/>').text(htmlString).html();
+                    }
+
+                };
+
+                XMLGenerator.prototype.data = null;
+
+                XMLGenerator.prototype.addToExisting = false;
+
+                XMLGenerator.prototype.$document = null;
+
+                XMLGenerator.prototype.$fields = null;
+
+                XMLGenerator.prototype.$select = null;
+
+                XMLGenerator.prototype.$channelTemplate = null;
+
+                XMLGenerator.prototype.$itemTemplate = null;
+
+                XMLGenerator.prototype.$channelInfo = null;
+
+                XMLGenerator.prototype.$headerHelperOutput = null;
+
+                XMLGenerator.prototype.$output = null;
+
+                XMLGenerator.prototype.$addToExisting = null;
+
+                XMLGenerator.prototype.$itemsWrapper = null;
+
+                XMLGenerator.prototype.$items = null;
+
+                XMLGenerator.prototype.$addItem = null;
+
+                XMLGenerator.prototype.$removeItem = null;
+
+                XMLGenerator.prototype.$pubDate = null;
+
+                return XMLGenerator;
+
+            }).call(this);
+
+            generator = new XMLGenerator($(".wrapper"));
+
+        }).call(this);
+    </script>
+
+
+
+
+
+
+
+</body>
+
+
+</html>
